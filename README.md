@@ -8,5 +8,6 @@ https://releases.ubuntu.com/20.04/
 
 한꺼번에 지우기..
 k8s@master1:~/container-ex$ sudo docker rm $(sudo docker ps -aq)
+
 k8s@master1:~/container-ex$ sudo docker rmi $(sudo docker images -aq)
 
