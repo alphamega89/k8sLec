@@ -11,3 +11,8 @@ k8s@master1:~/container-ex$ sudo docker rm $(sudo docker ps -aq)
 
 k8s@master1:~/container-ex$ sudo docker rmi $(sudo docker images -aq)
 
+
+# guest쪽 방화벽 허용처리
+sudo ufw status
+sudo ufw disable
+
