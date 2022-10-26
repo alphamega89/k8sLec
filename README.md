@@ -29,11 +29,17 @@ ex) nano 에디터 사용
 $ nano Dockerfile
 
 FROM ubuntu:20.04        <<--------- 실행되는 base OS정보
+
 MAINTAINER onlooker2zip "onlooker2zip@naver.com"  <<---작성자 정보
+
 RUN apt-get update
+
 RUN apt-get install -y nginx   <<--------- 중간에 -y 가 꼭 들어가야한다.. Time Zone 관련에러
+
 WORKDIR /etc/nginx             <<--------- 작업 dir 설정
+
 CMD ["nginx", "-g", "daemon off;"]  <<--------- backgournd 처리 할때 쓰는 옵션
+
 EXPOSE 80                           <<--------- 80 포트를 열때
 
 
