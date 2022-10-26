@@ -16,3 +16,25 @@ k8s@master1:~/container-ex$ sudo docker rmi $(sudo docker images -aq)
 sudo ufw status
 sudo ufw disable
 
+
+
+sudo docker run -d -p 8080:80 nginx
+-d 옵션 -- background에서 실행
+-p 포트를 사용하기 위한 옵션
+8080:80 --------8080포트로 접속시도했을시, 80포트로 처리 하겠다
+(포트포워딩)
+
+# 도커파일 작성시 
+ex) nano 에디터 사용
+$ nano Dockerfile
+
+FROM ubuntu:20.04        <<--------- 실행되는 base OS정보
+MAINTAINER onlooker2zip "onlooker2zip@naver.com"  <<---작성자 정보
+RUN apt-get update
+RUN apt-get install -y nginx   <<--------- 중간에 -y 가 꼭 들어가야한다.. Time Zone 관련에러
+WORKDIR /etc/nginx             <<--------- 작업 dir 설정
+CMD ["nginx", "-g", "daemon off;"]  <<--------- backgournd 처리 할때 쓰는 옵션
+EXPOSE 80                           <<--------- 80 포트를 열때
+
+
+
