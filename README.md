@@ -44,3 +44,10 @@ EXPOSE 80                           <<--------- 80 포트를 열때
 
 
 
+#kube 설정
+
+k8s@master1:~$ mkdir ~/.kube
+k8s@master1:~$ sudo cp /etc/rancher/k3s/k3s.yaml ~/.kube/config
+k8s@master1:~$ sudo chown -R $(id -u):$(id -g) ~/.kube
+k8s@master1:~$ echo "export KUBECONFIG=~/.kube/config" >> ~/.bashrc
+k8s@master1:~$ source ~/.bashrc
