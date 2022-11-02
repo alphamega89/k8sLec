@@ -274,8 +274,8 @@ flush privileges;
 quit
 ```
 
-**Wordpress 생성**
-
+**Wordpress master생성**
+qoO5zp$5OkHThpyM6R
 ```
 sudo docker run -d -p 8000:80 \
   -e WORDPRESS_DB_HOST=172.17.0.1 \
@@ -322,7 +322,7 @@ sudo docker run -d -p 8000:80 \
   wordpress
 ```
 
-**wordpress 생성**
+**wordpress 생성**  H6KCLWgo0m1J4k0TtO
 
 k8s@master1:~$ mkdir dc-02
 k8s@master1:~$ cd dc-02
@@ -354,7 +354,7 @@ k8s@master1:~/dc-02:~$ sudo docker compose up -d
 
 ### 3-4 MSA (Micro Service Architecture) : 모놀리틱에서 마이크로서비스로 이동
 
-
+-p옵션으로 폴더 만들때--부모폴더를 같이 만드는 옵션
 k8s@master1:~$ mkdir -p ~/msa-ex1/{MicroService,Frontend-WebUI/templates}
 k8s@master1:~$ cd msa-ex1/
 k8s@master1:~/msa-ex1$ ls
@@ -410,8 +410,13 @@ EXPOSE 5000
 CMD ["python3", "entry.py"]
 
 ```
+# cat명령어 사용시 
+cat > 생성파일이름
+내용 작성후
+cntl+엔터
+cntl+D(나가기)
 
-k8s@master1:~/msa-ex1/MicroService$ sudo docker build -t looker2zip/my-calc .
+k8s@master1:~/msa-ex1/MicroService$ sudo docker build -t alphamega89/my-calc .
 
 k8s@master1:~/msa-ex1/MicroService$ sudo docker login
 
@@ -573,9 +578,11 @@ k8s@master1:~$ source ~/.bashrc
 k8s@master1:~$ kubectl cluster-info
 k8s@master1:~$ kubectl get node -o wide
 
-
+노드토큰 확인명령
 k8s@master1:~$ sudo cat /var/lib/rancher/k3s/server/node-token
 K1062020ae0e66b556b901a6f42529d286573e88294e027a693397f181e07d1351f::server:0a812984e25e314c5f8487e5b1e260a3
+
+마스터IP확인명령
 k8s@master1:~$ kubectl get node master1 -ojsonpath="{.status.addresses[0].address}"
 10.0.2.110
 k8s@master1:~$ 
@@ -830,7 +837,7 @@ NAME             DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE my-first-nginx
 k8s@master1:~$ kubectl expose deployment my-first-nginx --port=80 --type=LoadBalancer
 
 // 모든 서비스 받기
-k8s@master1:~$ kubectl get service
+k8s@master1:~$ kbn n
 NAME             TYPE           CLUSTER-IP      EXTERNAL-IP   PORT(S) AGE
 kubernetes       ClusterIP      10.96.0.1       <none>        443/TCP 2h
 my-first-nginx   LoadBalancer   10.102.141.22   <pending>     80:31620/TCP 3m
